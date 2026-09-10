@@ -25,6 +25,7 @@ The useful habit here is simple: describe an outcome, try the result, then give 
   > Build the version we agreed on. Run it, tell me how to open it, and help me test it.
 
 - Open the app and check the agreed features. Add a task, complete it, and refresh the page to check that it stays saved.
+- Ask Bob to create and run a few automated tests for the agreed features. Have it explain what they check; rerun them after your next change.
 - Make it yours: ask for categories, search, a new look, or a feature you would actually use.
 - If something breaks, describe what happened and let Bob fix it.
 

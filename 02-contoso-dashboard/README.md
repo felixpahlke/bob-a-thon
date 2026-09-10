@@ -18,6 +18,7 @@ Contoso is fictional retail sample data in a real database. This lab's query too
 
 - Open this folder in Bob. Put the instructor's `.env` and, if supplied, `database-ca.pem` in `mcp-server/`.
 - Run `npm run setup` in this folder. This repository's helper creates `.bob/mcp.json` with the correct paths for your machine; Bob uses it to start the server.
+- Open `.bob/mcp.json` and ask Bob to explain `command`, `args`, and `cwd`: what starts the server, which file runs, and which folder it runs from.
 - Open Bob's MCP settings and restart **contoso**. Run `npm run check` to verify the connection. You should see three tools and eight Contoso tables.
 - Ask Bob:
 
@@ -28,6 +29,7 @@ Contoso is fictional retail sample data in a real database. This lab's query too
   > Create a dashboard using the real data from this database so I can understand it. Run it and check that it works.
 
 - Play with the result: ask for a filter, another chart, or an answer to your own business question.
+- Try changing the mode: add a reporting preference to `customInstructions` in `.bob/custom_modes.yaml`, such as “Include a short explanation of each metric.” Keep its data and safety guidance. Reload Bob's window, select **Contoso Analyst**, and ask another question to try it out.
 
 **Done when:** Bob has called the database tools and your dashboard shows real Contoso results.
 

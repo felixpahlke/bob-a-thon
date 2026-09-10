@@ -1,6 +1,8 @@
-# Optional · Build an App Connect integration
+# 4 · Build an App Connect integration
 
 Generate, build, and call a real weather API.
+
+Choose this lab or the [ODM lab](../04-odm/README.md) for Step 4.
 
 ## What are we building?
 
@@ -8,19 +10,28 @@ The weather MCP gave **Bob** tools. This integration gives **other applications*
 
 - A **message flow** connects processing steps; **ESQL** supplies logic for validation and handling data.
 - A **BAR file** packages the integration for deployment. The **integration server** runs it; the **Toolkit** lets you view and edit it visually. [ACE deployment concepts](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=software-deploying-integration-solutions).
-- The **ACE Developer mode** guides Bob's workflow. The bundled **skills** supply reusable instructions and examples for ACE project files, flows, and ESQL. They do not replace the ACE runtime.
+- The **ACE Developer mode** includes the original mode's seven rule files, with separate [workshop adjustments](.bob/rules-ace-developer/8_workshop-adjustments.md). The bundled **skills** supply instructions and examples for ACE project files, flows, and ESQL. They do not replace the ACE runtime.
 
-**Still downloading ACE?** You can prepare files entirely in Bob. Ask: “Prepare the integration in LAB.md, including project files and tests. Don't build or deploy yet; list what remains unverified.” Continue below when ACE is installed.
+## Without ACE installed: prepare and review
 
-## Build and run
+- Open this folder in Bob and select **ACE Developer**. Ask:
 
-- Install **IBM App Connect Enterprise 13 Evaluation Edition**, including the Toolkit and runtime. [IBM installation guide](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=enterprise-download-ace-developer-edition-get-started). A Java installation alone is not enough. No cloud runtime is needed.
+  > Prepare the integration in LAB.md, including project files and tests. ACE is not installed, so don't build or deploy. Use the bundled skills, review the files, and list what you checked and what remains unverified.
+
+- Ask Bob to explain the request flow and show where invalid coordinates and upstream failures are handled.
+
+**Done when:** the source files are prepared and reviewed, with build and runtime checks explicitly marked unverified. No ACE download is needed for this path.
+
+## With ACE installed: build and run
+
+Use this path if **IBM App Connect Enterprise 13**, including its build tools and runtime, is already installed. Evaluation Edition is sufficient; a Java installation alone is not. No cloud runtime is needed.
+
 - On **Windows**, open **IBM App Connect Enterprise Console** from the Start menu. Run `mqsiversion` to check the command environment. Bob's terminal also needs the ACE environment; ask Bob to locate the installed `mqsiprofile.cmd` and run ACE commands through it in the same Command Prompt process. [IBM command-environment guide](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=tasks-setting-up-command-environment).
 - In that console, create and start a local server. Replace the example path with your checkout's location and keep the console running:
 
   ```text
-  mqsicreateworkdir "C:\work\bob-a-thon\optional-ace\.workdir"
-  IntegrationServer --work-dir "C:\work\bob-a-thon\optional-ace\.workdir" --name weather-lab
+  mqsicreateworkdir "C:\work\bob-a-thon\04-ace\.workdir"
+  IntegrationServer --work-dir "C:\work\bob-a-thon\04-ace\.workdir" --name weather-lab
   ```
 
 - Open this folder in Bob. Select **ACE Developer**; the mode and focused ACE skills are included. Ask:
@@ -36,4 +47,4 @@ The lab materials are prepared; the ACE build/deployment needs rehearsal on your
 
 For a facilitator rehearsing on macOS: use **Open Integration Console** in the Toolkit and replace the Windows work-directory path with your local absolute path.
 
-[Workshop guide](../README.md) · [Coming soon: ODM](../coming-soon-odm/README.md)
+[Workshop guide](../README.md) · [Other Step 4 choice: ODM](../04-odm/README.md)
