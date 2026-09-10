@@ -1,6 +1,6 @@
 # 1 · Build an app
 
-**25 minutes · Finish with an app you made your own.**
+Finish with an app you made your own.
 
 - Open this folder in Bob and select Agent mode.
 - Start with this prompt:

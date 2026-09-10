@@ -3,6 +3,7 @@
 ## Before the room arrives
 
 - Rehearse from a fresh checkout: `npm ci`, then `npm test`.
+- Rehearse on a participant-style **Windows machine** too. The GitHub workflow includes Windows, but a configured CI job is not evidence that it has run. Confirm Bob sees Node after installation, `.env` keeps its exact filename, and the workshop network allows PostgreSQL and Open-Meteo connections.
 - Supply a Contoso `.env` and its CA certificate privately. Use a dedicated SELECT-only database login, not the administrator that created the database. Participants need access to the database hostname/port from the workshop network.
 - In Lab 2, run `npm run setup` and `npm run check`. Each participant opens the lab folder itself; the generated MCP config uses absolute paths. Rerun setup after moving the repository.
 - Rehearse Lab 3 by having Bob complete its starter and running `npm run check`. Its weather check intentionally fails until the two tools exist. There is no API key to distribute.

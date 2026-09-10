@@ -1,6 +1,6 @@
 # 3 · Build your own MCP
 
-**35 minutes · Give Bob a new tool, built by Bob.**
+Give Bob a new tool, built by Bob.
 
 - Open this folder in Bob. The starter has MCP wiring and a `ping` tool; Bob will implement the weather tools.
 - Ask:

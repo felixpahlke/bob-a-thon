@@ -1,8 +1,16 @@
 # Bob-a-thon
 
-Build an app, connect Bob to real data, then give it a new tool. About **2 hours**, plus an optional App Connect lab.
+Build an app, connect Bob to real data, then give it a new tool.
 
 Follow this page from top to bottom. The prompts are starting points—make the results your own.
+
+Jump to a lab:
+
+- [1 · Build an app](01-build-an-app/README.md)
+- [2 · Data to dashboard](02-contoso-dashboard/README.md)
+- [3 · Build a weather MCP](03-weather-mcp/README.md)
+- [Optional · App Connect](optional-ace/README.md)
+- [Coming soon · ODM](coming-soon-odm/README.md)
 
 ## Start here
 
@@ -11,7 +19,9 @@ Follow this page from top to bottom. The prompts are starting points—make the 
 - Get the Contoso connection files from your instructor for Lab 2.
 - For each lab below, use **File → Open Folder** in Bob to open that lab's folder. Run its commands in Bob's terminal. This is how Bob finds that lab's MCPs and modes.
 
-## 1 · Build an app — 25 minutes
+**On Windows:** restart Bob after installing Node.js so it sees the new commands. Use Command Prompt or PowerShell. If PowerShell blocks `npm.ps1`, use `npm.cmd` instead of `npm` in the commands below. No WSL or Git Bash is required. Enable file-name extensions in Explorer so `.env` doesn't accidentally become `.env.txt`.
+
+## 1 · Build an app
 
 Open **`01-build-an-app`** and select Agent mode.
 
@@ -25,7 +35,7 @@ Open **`01-build-an-app`** and select Agent mode.
 
 **Checkpoint:** a working app with one improvement you requested.
 
-## 2 · Turn real data into a dashboard — 45 minutes
+## 2 · Turn real data into a dashboard
 
 Open **`02-contoso-dashboard`**. The supplied MCP gives Bob three database tools; the mode adds knowledge about Contoso and useful dashboard conventions.
 
@@ -43,7 +53,7 @@ Open **`02-contoso-dashboard`**. The supplied MCP gives Bob three database tools
 
 **Checkpoint:** a dashboard based on actual Contoso query results. [Connection help](02-contoso-dashboard/README.md).
 
-## 3 · Have Bob build a weather MCP — 35 minutes
+## 3 · Have Bob build a weather MCP
 
 Open **`03-weather-mcp`** and use Agent mode. This time Bob builds the tools itself; the folder contains a minimal starter and API notes.
 
@@ -58,7 +68,7 @@ Open **`03-weather-mcp`** and use Agent mode. This time Bob builds the tools its
 
 **Checkpoint:** Bob answers with live weather from the MCP you built. No API key is needed for this non-commercial demo. [Weather data by Open-Meteo](https://open-meteo.com/).
 
-## Optional · Build an App Connect integration — 45 minutes after installation
+## Optional · Build an App Connect integration
 
 This uses **IBM App Connect Enterprise (ACE) 13 Evaluation Edition**, including Toolkit and runtime. Install it before this section; the core labs above do not need it.
 

@@ -21,6 +21,7 @@ customModes:
       - This is synthetic sample data. Empty query results are valid; don't invent records.
 
       Dashboard conventions:
+      - Participants use Windows. Use commands for their actual terminal; avoid assuming Bash or WSL. On PowerShell, npm.cmd works when npm.ps1 is blocked. Don't change machine-wide execution policies.
       - Query and aggregate the real database through MCP. Keep credentials out of browser code, generated reports, and screenshots. A live-refresh app needs a server-side connection; the browser does not inherit Bob's MCP tools.
       - Prefer simple HTML/CSS and Canvas 2D charts for this workshop; this avoids CDN and chart-library setup. This is a workshop default, not a claim that Chart.js is broken. Follow explicit user preferences.
       - Include units, clear labels, and readable numbers; provide a table for chart values. Explain the metrics and whether data refreshes live or reflects the last query.

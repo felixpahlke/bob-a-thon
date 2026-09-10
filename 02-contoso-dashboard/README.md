@@ -1,6 +1,6 @@
 # 2 · Data to dashboard
 
-**45 minutes · Ask questions of a real database, then visualize it.**
+Ask questions of a real database, then visualize it.
 
 - Open this folder in Bob. Put the instructor's `.env` and, if supplied, `database-ca.pem` in `mcp-server/`.
 - Run `npm run setup` in this folder. It creates `.bob/mcp.json` with the correct paths for your machine.

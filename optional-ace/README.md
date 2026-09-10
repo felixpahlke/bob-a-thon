@@ -1,14 +1,14 @@
 # Optional · Build an App Connect integration
 
-**45 minutes after setup · Generate, build, and call a real weather API.**
+Generate, build, and call a real weather API.
 
 - Install **IBM App Connect Enterprise 13 Evaluation Edition**, including the Toolkit and runtime. [IBM installation guide](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=enterprise-download-ace-developer-edition-get-started). A Java installation alone is not enough. No cloud runtime is needed.
-- Open the ACE command console (`Open Integration Console` in the Toolkit on macOS). Run `mqsiversion` to check the command environment. Bob's terminal must have the same ACE environment; ask Bob to check this before building.
-- In that console, create and start a local server using an absolute work-directory path:
+- On **Windows**, open **IBM App Connect Enterprise Console** from the Start menu. Run `mqsiversion` to check the command environment. Bob's terminal also needs the ACE environment; ask Bob to locate the installed `mqsiprofile.cmd` and run ACE commands through it in the same Command Prompt process. [IBM command-environment guide](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=tasks-setting-up-command-environment).
+- In that console, create and start a local server. Replace the example path with your checkout's location and keep the console running:
 
   ```text
-  mqsicreateworkdir "<absolute-path-to-this-folder>/.workdir"
-  IntegrationServer --work-dir "<absolute-path-to-this-folder>/.workdir" --name weather-lab
+  mqsicreateworkdir "C:\work\bob-a-thon\optional-ace\.workdir"
+  IntegrationServer --work-dir "C:\work\bob-a-thon\optional-ace\.workdir" --name weather-lab
   ```
 
 - Open this folder in Bob. Select **ACE Developer**; the mode and focused ACE skills are included. Ask:
@@ -21,3 +21,5 @@
 **Done when:** the BAR builds, the deployed endpoint returns live weather, and invalid input returns a clear error.
 
 The lab materials are prepared; the ACE build/deployment needs rehearsal on your installed ACE version. Generated files alone do not count as a successful run.
+
+For a facilitator rehearsing on macOS: use **Open Integration Console** in the Toolkit and replace the Windows work-directory path with your local absolute path.
