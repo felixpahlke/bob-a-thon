@@ -10,7 +10,7 @@ The weather MCP gave **Bob** tools. This integration gives **other applications*
 
 - A **message flow** connects processing steps; **ESQL** supplies logic for validation and handling data.
 - A **BAR file** packages the integration for deployment. The **integration server** runs it; the **Toolkit** lets you view and edit it visually. [ACE deployment concepts](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=software-deploying-integration-solutions).
-- The **ACE Developer mode** guides Bob's workflow, with detailed technical checks in its [rules](.bob/rules-ace-developer/01-artifact-correctness.md). The bundled **skills** supply reusable instructions and examples for ACE project files, flows, and ESQL. They do not replace the ACE runtime.
+- The **ACE Developer mode** includes the original mode's seven rule files, with separate [workshop adjustments](.bob/rules-ace-developer/8_workshop-adjustments.md). The bundled **skills** supply instructions and examples for ACE project files, flows, and ESQL. They do not replace the ACE runtime.
 
 ## Without ACE installed: prepare and review
 

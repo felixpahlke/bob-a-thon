@@ -1,6 +1,7 @@
 import assert from 'node:assert/strict';
 import { test } from 'node:test';
 import { EventEmitter } from 'node:events';
+import { createHash } from 'node:crypto';
 import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { join } from 'node:path';
 import { tmpdir } from 'node:os';
@@ -104,7 +105,7 @@ test('weather MCP initializes without calling an external weather service', asyn
 test('Bob modes parse and include the tools their workflows require', async () => {
   for (const [folder, slug, required] of [
     ['02-contoso-dashboard', 'contoso-analyst', ['read', 'edit', 'execute', 'mcp']],
-    ['04-ace', 'ace-developer', ['read', 'edit', 'execute', 'skill']],
+    ['04-ace', 'ace-developer', ['read', 'edit', 'execute', 'mcp', 'skill']],
   ]) {
     const value = parse(await readFile(new URL(`../${folder}/.bob/custom_modes.yaml`, import.meta.url), 'utf8'));
     const mode = value.customModes.find((item) => item.slug === slug);
@@ -118,8 +119,7 @@ test('workshop navigation and ACE technical guidance resolve to local files', as
   const docs = [
     'README.md', '01-build-an-app/README.md', '02-contoso-dashboard/README.md',
     '03-weather-mcp/README.md', '04-ace/README.md', '04-odm/README.md', 'THIRD_PARTY.md',
-    '04-ace/.bob/rules-ace-developer/01-artifact-correctness.md',
-    '04-ace/.bob/rules-ace-developer/02-workflow-and-validation.md',
+    '04-ace/.bob/rules-ace-developer/8_workshop-adjustments.md',
   ];
   for (const file of docs) {
     const url = new URL(file, root);
@@ -133,9 +133,26 @@ test('workshop navigation and ACE technical guidance resolve to local files', as
   assert.match(guide, /Choose your integration lab/);
   for (const folder of ['04-ace', '04-odm']) assert(guide.includes(`${folder}/README.md`));
   const mode = parse(await readFile(new URL('04-ace/.bob/custom_modes.yaml', root), 'utf8')).customModes[0];
-  for (const name of ['01-artifact-correctness.md', '02-workflow-and-validation.md']) {
+  for (const name of ['1_workflow.xml', '7_msgflow_xml_and_esql_schema.xml', '8_workshop-adjustments.md']) {
     assert(mode.customInstructions.includes(name), `ACE mode must direct Bob to ${name}`);
   }
+});
+
+test('ACE mode preserves upstream fields and all seven original rule files', async () => {
+  const root = new URL('../04-ace/.bob/', import.meta.url);
+  const upstream = JSON.parse(await readFile(new URL('ace-mode-upstream.json', root), 'utf8'));
+  const sha = (text) => createHash('sha256').update(text).digest('hex');
+  assert.equal(Object.keys(upstream.rulesSha256).length, 7);
+  for (const [file, hash] of Object.entries(upstream.rulesSha256)) {
+    const text = await readFile(new URL(file, root), 'utf8');
+    // Git may use CRLF on Windows; check original contents apart from checkout line endings.
+    assert.equal(sha(text.replace(/\r\n/g, '\n')), hash, `${file} differs from the pinned original`);
+  }
+  const mode = parse(await readFile(new URL('custom_modes.yaml', root), 'utf8')).customModes[0];
+  const { customInstructions, ...original } = mode;
+  assert(customInstructions.includes('8_workshop-adjustments.md'));
+  original.groups = original.groups.filter((group) => group !== 'skill');
+  assert.equal(sha(JSON.stringify(original)), upstream.originalModeFieldsSha256, 'Original mode fields changed');
 });
 
 test('ACE HTTP checker validates success and error contracts (test double, not an ACE runtime)', async () => {
