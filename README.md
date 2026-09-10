@@ -37,6 +37,16 @@ Open **`01-build-an-app`** and select Agent mode.
 
 ## 2 · Turn real data into a dashboard
 
+### What is an MCP server?
+
+**MCP (Model Context Protocol)** is a standard way for AI assistants to use external tools and data. An **MCP server** is a program that makes those tools available to Bob.
+
+In this lab, the server runs on your laptop and connects to the workshop's remote database. When you ask a question, Bob can call its tools to list tables, inspect columns, and query real data—then use the results in its answer. In Lab 3, your server will call a weather API instead.
+
+A **Bob mode** does a different job: it gives Bob instructions about how to work. Our Contoso Analyst mode explains the data and dashboard conventions; the MCP provides the actual database access.
+
+### Try it
+
 Open **`02-contoso-dashboard`**. The supplied MCP gives Bob three database tools; the mode adds knowledge about Contoso and useful dashboard conventions.
 
 - Put the instructor's **`.env`** and, if supplied, **`database-ca.pem`** in **`mcp-server/`**. The database name is `contoso`.
