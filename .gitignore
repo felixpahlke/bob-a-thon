@@ -1,0 +1,14 @@
+node_modules/
+.env
+.env.*
+!.env.example
+*.pem
+*.crt
+*.key
+**/.bob/mcp.json
+*.log
+.DS_Store
+**/.metadata/
+**/.workdir/
+**/output/
+**/*.bar

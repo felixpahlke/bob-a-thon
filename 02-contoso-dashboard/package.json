@@ -1,0 +1,10 @@
+{
+  "name": "contoso-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node ../scripts/setup-mcp.mjs database",
+    "check": "node ../scripts/check-mcp.mjs database",
+    "start": "node mcp-server/server.mjs"
+  }
+}

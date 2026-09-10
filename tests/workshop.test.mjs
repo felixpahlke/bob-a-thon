@@ -1,0 +1,131 @@
+import assert from 'node:assert/strict';
+import { test } from 'node:test';
+import { EventEmitter } from 'node:events';
+import { mkdtemp, mkdir, readFile, writeFile, rm } from 'node:fs/promises';
+import { join } from 'node:path';
+import { tmpdir } from 'node:os';
+import { parse } from 'yaml';
+import { setup } from '../scripts/setup-mcp.mjs';
+import { withMcp } from '../scripts/check-mcp.mjs';
+import { createDatabase, selectStatement } from '../02-contoso-dashboard/mcp-server/database.mjs';
+import { createServer } from 'node:http';
+import { checkApi } from '../optional-ace/test-api.mjs';
+
+test('setup handles spaces, preserves credentials and unrelated MCP settings, and is repeatable', async () => {
+  const base = await mkdtemp(join(tmpdir(), 'bob-a-thon path with spaces '));
+  try {
+    const folder = join(base, '02-contoso-dashboard');
+    await mkdir(join(folder, '.bob'), { recursive: true });
+    await mkdir(join(folder, 'mcp-server'));
+    await writeFile(join(folder, 'mcp-server/.env.example'), 'DATABASE_NAME=example\n');
+    await writeFile(join(folder, 'mcp-server/.env'), 'DATABASE_NAME=keep_me\n');
+    await writeFile(join(folder, '.bob/mcp.json'), JSON.stringify({ mcpServers: { other: { command: 'other' }, contoso: { timeout: 50 } } }));
+    const first = await setup('database', base);
+    const before = await readFile(first.configPath, 'utf8');
+    await setup('database', base);
+    assert.equal(await readFile(first.configPath, 'utf8'), before);
+    const config = JSON.parse(before);
+    assert.equal(config.mcpServers.other.command, 'other');
+    assert.equal(config.mcpServers.contoso.timeout, 50);
+    assert.equal(config.mcpServers.contoso.command, process.execPath);
+    assert.deepEqual(config.mcpServers.contoso.args, [join(folder, 'mcp-server/server.mjs')]);
+    assert.equal(config.mcpServers.contoso.cwd, join(folder, 'mcp-server'));
+    assert.equal(await readFile(join(folder, 'mcp-server/.env'), 'utf8'), 'DATABASE_NAME=keep_me\n');
+    await writeFile(first.configPath, '{broken');
+    await assert.rejects(setup('database', base), SyntaxError);
+    assert.equal(await readFile(first.configPath, 'utf8'), '{broken');
+  } finally { await rm(base, { recursive: true, force: true }); }
+});
+
+test('queries use read-only transactions, parameters, row caps, and rollback', async () => {
+  const queries = [];
+  const releases = [];
+  const client = {
+    query: async (query) => {
+      queries.push(query);
+      if (typeof query === 'object') return { rows: Array.from({ length: 501 }, (_, n) => ({ n })) };
+      return { rows: [] };
+    },
+    release: (error) => releases.push(error),
+  };
+  const pool = Object.assign(new EventEmitter(), { connect: async () => client, end: async () => {} });
+  const db = createDatabase(() => pool);
+  const response = await db.query('SELECT $1 AS value;', [42]);
+  assert.equal(queries[0], 'BEGIN READ ONLY');
+  assert.match(queries[1], /statement_timeout/);
+  assert.match(queries[2], /lock_timeout/);
+  assert.equal(queries[3].queryMode, 'extended');
+  assert.deepEqual(queries[3].values, [42]);
+  assert.equal(queries.at(-1), 'ROLLBACK');
+  assert.equal(response.rows.length, 500);
+  assert.equal(response.truncated, true);
+  assert.equal(releases.length, 1);
+  await db.close();
+});
+
+test('query failures roll back and release the connection', async () => {
+  const calls = [];
+  const client = {
+    query: async (query) => { calls.push(query); if (typeof query === 'object') throw new Error('query failed'); },
+    release: () => calls.push('release'),
+  };
+  const pool = Object.assign(new EventEmitter(), { connect: async () => client, end: async () => {} });
+  const db = createDatabase(() => pool);
+  await assert.rejects(db.query('SELECT 1'), /query failed/);
+  assert.deepEqual(calls.slice(-2), ['ROLLBACK', 'release']);
+});
+
+test('SQL guard accepts normal words but rejects non-query commands', () => {
+  assert.match(selectStatement("SELECT 'drop shipping' AS description;"), /drop shipping/);
+  assert.match(selectStatement('WITH x AS (SELECT 1) SELECT * FROM x'), /WITH x/);
+  for (const sql of ['DELETE FROM sales', 'BEGIN', 'COMMIT', 'SET transaction_read_only = off']) assert.throws(() => selectStatement(sql), /SELECT/);
+});
+
+test('database MCP initializes and lists three tools from an unrelated working directory', async () => {
+  await withMcp('database', async (client) => {
+    const { tools } = await client.listTools();
+    assert.deepEqual(tools.map((tool) => tool.name).sort(), ['get_table_schema', 'list_tables', 'query_database']);
+    assert(tools.every((tool) => tool.annotations.readOnlyHint));
+  });
+});
+
+test('weather MCP initializes without calling an external weather service', async () => {
+  await withMcp('weather', async (client) => {
+    const { tools } = await client.listTools();
+    if (tools.some((tool) => tool.name === 'ping')) {
+      const result = await client.callTool({ name: 'ping', arguments: {} });
+      assert.match(result.content[0].text, /Connected/);
+    } else {
+      for (const name of ['search_city', 'get_current_weather']) assert(tools.some((tool) => tool.name === name));
+    }
+  });
+});
+
+test('Bob modes parse and include the tools their workflows require', async () => {
+  for (const [folder, slug, required] of [
+    ['02-contoso-dashboard', 'contoso-analyst', ['read', 'edit', 'execute', 'mcp']],
+    ['optional-ace', 'ace-developer', ['read', 'edit', 'execute', 'skill']],
+  ]) {
+    const value = parse(await readFile(new URL(`../${folder}/.bob/custom_modes.yaml`, import.meta.url), 'utf8'));
+    const mode = value.customModes.find((item) => item.slug === slug);
+    assert(mode?.roleDefinition && mode?.customInstructions);
+    for (const group of required) assert(mode.groups.includes(group));
+  }
+});
+
+test('ACE HTTP checker validates success and error contracts (test double, not an ACE runtime)', async () => {
+  const server = createServer((req, res) => {
+    const params = new URL(req.url, 'http://localhost').searchParams;
+    const latitude = params.get('latitude');
+    const invalid = latitude === null || !Number.isFinite(Number(latitude)) || Math.abs(Number(latitude)) > 90;
+    res.writeHead(invalid ? 400 : 200, { 'content-type': 'application/json' });
+    res.end(JSON.stringify(invalid ? { error: 'Invalid coordinates' } : {
+      latitude: 52.52, longitude: 13.41, timezone: 'Europe/Berlin',
+      current: { time: '2026-09-10T12:00', temperature_2m: 20, wind_speed_10m: 5 },
+      current_units: { temperature_2m: '°C', wind_speed_10m: 'km/h' },
+    }));
+  });
+  await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
+  try { await checkApi(`http://127.0.0.1:${server.address().port}`); }
+  finally { await new Promise((resolve) => server.close(resolve)); }
+});

@@ -1,0 +1,10 @@
+{
+  "name": "weather-lab",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node ../scripts/setup-mcp.mjs weather",
+    "check": "node ../scripts/check-mcp.mjs weather",
+    "start": "node server.mjs"
+  }
+}
