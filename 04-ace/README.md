@@ -10,11 +10,20 @@ The weather MCP gave **Bob** tools. This integration gives **other applications*
 - A **BAR file** packages the integration for deployment. The **integration server** runs it; the **Toolkit** lets you view and edit it visually. [ACE deployment concepts](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=software-deploying-integration-solutions).
 - The **ACE Developer mode** guides Bob's workflow. The bundled **skills** supply reusable instructions and examples for ACE project files, flows, and ESQL. They do not replace the ACE runtime.
 
-**Still downloading ACE?** You can prepare files entirely in Bob. Ask: “Prepare the integration in LAB.md, including project files and tests. Don't build or deploy yet; list what remains unverified.” Continue below when ACE is installed.
+## Without ACE installed: prepare and review
 
-## Build and run
+- Open this folder in Bob and select **ACE Developer**. Ask:
 
-- Install **IBM App Connect Enterprise 13 Evaluation Edition**, including the Toolkit and runtime. [IBM installation guide](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=enterprise-download-ace-developer-edition-get-started). A Java installation alone is not enough. No cloud runtime is needed.
+  > Prepare the integration in LAB.md, including project files and tests. ACE is not installed, so don't build or deploy. Use the bundled skills, review the files, and list what you checked and what remains unverified.
+
+- Ask Bob to explain the request flow and show where invalid coordinates and upstream failures are handled.
+
+**Done when:** the source files are prepared and reviewed, with build and runtime checks explicitly marked unverified. No ACE download is needed for this path.
+
+## With ACE installed: build and run
+
+Use this path if **IBM App Connect Enterprise 13**, including its build tools and runtime, is already installed. Evaluation Edition is sufficient; a Java installation alone is not. No cloud runtime is needed.
+
 - On **Windows**, open **IBM App Connect Enterprise Console** from the Start menu. Run `mqsiversion` to check the command environment. Bob's terminal also needs the ACE environment; ask Bob to locate the installed `mqsiprofile.cmd` and run ACE commands through it in the same Command Prompt process. [IBM command-environment guide](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=tasks-setting-up-command-environment).
 - In that console, create and start a local server. Replace the example path with your checkout's location and keep the console running:
 

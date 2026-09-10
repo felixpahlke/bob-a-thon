@@ -52,10 +52,10 @@ Open **`03-weather-mcp`** in Bob and follow [Lab 3](03-weather-mcp/README.md).
 Open **`04-ace`** in Bob and follow [Lab 4](04-ace/README.md).
 
 - Use **ACE Developer** and the included skills to build a weather integration.
-- Running it requires **IBM App Connect Enterprise 13 Evaluation Edition** locally; the core labs do not need it. You can prepare the source while it downloads.
-- Deploy, test, and improve the integration. No cloud runtime is needed.
+- Without ACE installed, prepare and review the project files in Bob.
+- With ACE installed, also build, deploy, and test locally. No cloud runtime is needed.
 
-**Checkpoint:** the deployed ACE endpoint returns live weather and handles invalid input. This step needs a real ACE installation; generating source files alone is not a completed integration.
+**Checkpoint:** a reviewed integration project with unverified checks clearly listed—or, with ACE installed, a tested endpoint returning live weather and handling invalid input.
 
 ## Coming soon · Operational Decision Manager
 
