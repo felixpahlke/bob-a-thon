@@ -25,7 +25,7 @@ Jump to a lab:
 
 Open **`01-build-an-app`** in Bob and follow [Lab 1](01-build-an-app/README.md).
 
-- Have Bob build a to-do app, try it, then ask for a change of your own.
+- Discuss features and simple technology choices in **Plan** mode, then switch to **Agent** to build the agreed app. Try it and ask for a change of your own.
 
 **Checkpoint:** a working app with one improvement you requested.
 
