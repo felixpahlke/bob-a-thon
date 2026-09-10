@@ -24,4 +24,4 @@ City lookup turns a name into coordinates; the weather tool uses those coordinat
 
 Open-Meteo needs no API key for this non-commercial demo. [Weather data by Open-Meteo](https://open-meteo.com/).
 
-[Next: App Connect](../04-ace/README.md) · [Workshop guide](../README.md)
+Next, choose [App Connect](../04-ace/README.md) or [Operational Decision Manager](../04-odm/README.md) for Step 4. [Workshop guide](../README.md).

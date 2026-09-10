@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Four hands-on IBM Bob labs: app development, database MCP, weather MCP, and ACE",
+  "description": "IBM Bob workshop: app development, database MCP, weather MCP, then a choice of ACE or ODM",
   "license": "MIT",
   "engines": { "node": ">=22" },
   "scripts": {

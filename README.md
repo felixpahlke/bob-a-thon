@@ -9,8 +9,7 @@ Jump to a lab:
 - [1 · Build an app](01-build-an-app/README.md)
 - [2 · Data to dashboard](02-contoso-dashboard/README.md)
 - [3 · Build a weather MCP](03-weather-mcp/README.md)
-- [4 · App Connect](04-ace/README.md)
-- [Coming soon · ODM](coming-soon-odm/README.md)
+- Step 4 — choose [App Connect](04-ace/README.md) or [Operational Decision Manager](04-odm/README.md).
 
 ## Start here
 
@@ -47,22 +46,17 @@ Open **`03-weather-mcp`** in Bob and follow [Lab 3](03-weather-mcp/README.md).
 
 **Checkpoint:** Bob answers with live weather from the MCP you built.
 
-## 4 · Build an App Connect integration
+## 4 · Choose your integration lab
 
-Open **`04-ace`** in Bob and follow [Lab 4](04-ace/README.md).
+Choose one of these labs based on your interests or your instructor's guidance. Open its folder in Bob.
 
-- Use **ACE Developer** and the included skills to build a weather integration.
-- Without ACE installed, prepare and review the project files in Bob.
-- With ACE installed, also build, deploy, and test locally. No cloud runtime is needed.
+- **[App Connect — `04-ace`](04-ace/README.md):** use the ACE Developer mode and skills to prepare a weather API integration. With ACE installed, also build, deploy, and test it locally; otherwise review the source and clearly list unverified checks.
+- **[Operational Decision Manager — `04-odm`](04-odm/README.md):** follow your instructor's decision-automation exercise.
 
-**Checkpoint:** a reviewed integration project with unverified checks clearly listed—or, with ACE installed, a tested endpoint returning live weather and handling invalid input.
-
-## Coming soon · Operational Decision Manager
-
-An [ODM lab](coming-soon-odm/README.md) is being prepared by a colleague. Skip it for now; no additional setup is needed.
+**Checkpoint:** complete the chosen lab's exercise and explain what you created and verified.
 
 ## Finish
 
-Show one thing you built and one change you asked Bob to make. You have used Bob to create an app, work with existing tools, and build a new integration.
+Show one thing you built and one change you asked Bob to make. You have used Bob to create an app, work with existing tools, build a new tool, and explore your chosen integration lab.
 
 [Facilitator notes](facilitator/README.md) · [Sources and licenses](THIRD_PARTY.md)

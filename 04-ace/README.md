@@ -2,13 +2,15 @@
 
 Generate, build, and call a real weather API.
 
+Choose this lab or the [ODM lab](../04-odm/README.md) for Step 4.
+
 ## What are we building?
 
 The weather MCP gave **Bob** tools. This integration gives **other applications** an HTTP endpoint they can call without Bob. It validates coordinates, calls Open-Meteo, and returns weather data or a useful error.
 
 - A **message flow** connects processing steps; **ESQL** supplies logic for validation and handling data.
 - A **BAR file** packages the integration for deployment. The **integration server** runs it; the **Toolkit** lets you view and edit it visually. [ACE deployment concepts](https://www.ibm.com/docs/en/app-connect/13.0.x?topic=software-deploying-integration-solutions).
-- The **ACE Developer mode** guides Bob's workflow. The bundled **skills** supply reusable instructions and examples for ACE project files, flows, and ESQL. They do not replace the ACE runtime.
+- The **ACE Developer mode** guides Bob's workflow, with detailed technical checks in its [rules](.bob/rules-ace-developer/01-artifact-correctness.md). The bundled **skills** supply reusable instructions and examples for ACE project files, flows, and ESQL. They do not replace the ACE runtime.
 
 ## Without ACE installed: prepare and review
 
@@ -45,4 +47,4 @@ The lab materials are prepared; the ACE build/deployment needs rehearsal on your
 
 For a facilitator rehearsing on macOS: use **Open Integration Console** in the Toolkit and replace the Windows work-directory path with your local absolute path.
 
-[Workshop guide](../README.md) · [Coming soon: ODM](../coming-soon-odm/README.md)
+[Workshop guide](../README.md) · [Other Step 4 choice: ODM](../04-odm/README.md)

@@ -113,6 +113,31 @@ test('Bob modes parse and include the tools their workflows require', async () =
   }
 });
 
+test('workshop navigation and ACE technical guidance resolve to local files', async () => {
+  const root = new URL('../', import.meta.url);
+  const docs = [
+    'README.md', '01-build-an-app/README.md', '02-contoso-dashboard/README.md',
+    '03-weather-mcp/README.md', '04-ace/README.md', '04-odm/README.md', 'THIRD_PARTY.md',
+    '04-ace/.bob/rules-ace-developer/01-artifact-correctness.md',
+    '04-ace/.bob/rules-ace-developer/02-workflow-and-validation.md',
+  ];
+  for (const file of docs) {
+    const url = new URL(file, root);
+    const text = await readFile(url, 'utf8');
+    for (const [, target] of text.matchAll(/\[[^\]]*\]\(([^)]+)\)/g)) {
+      if (/^(?:https?:|mailto:|#)/.test(target)) continue;
+      await assert.doesNotReject(readFile(new URL(target, url)), `${file}: missing ${target}`);
+    }
+  }
+  const guide = await readFile(new URL('README.md', root), 'utf8');
+  assert.match(guide, /Choose your integration lab/);
+  for (const folder of ['04-ace', '04-odm']) assert(guide.includes(`${folder}/README.md`));
+  const mode = parse(await readFile(new URL('04-ace/.bob/custom_modes.yaml', root), 'utf8')).customModes[0];
+  for (const name of ['01-artifact-correctness.md', '02-workflow-and-validation.md']) {
+    assert(mode.customInstructions.includes(name), `ACE mode must direct Bob to ${name}`);
+  }
+});
+
 test('ACE HTTP checker validates success and error contracts (test double, not an ACE runtime)', async () => {
   const server = createServer((req, res) => {
     const params = new URL(req.url, 'http://localhost').searchParams;
