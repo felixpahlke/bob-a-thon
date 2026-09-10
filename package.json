@@ -3,14 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Three small hands-on IBM Bob labs and an optional ACE exercise",
+  "description": "Four hands-on IBM Bob labs: app development, database MCP, weather MCP, and ACE",
   "license": "MIT",
   "engines": { "node": ">=22" },
   "scripts": {
     "test": "node --test tests/workshop.test.mjs",
     "test:database": "node scripts/check-mcp.mjs database",
     "test:weather": "node scripts/check-mcp.mjs weather",
-    "test:ace-api": "node optional-ace/test-api.mjs"
+    "test:ace-api": "node 04-ace/test-api.mjs"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.30.0",

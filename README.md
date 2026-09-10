@@ -9,7 +9,7 @@ Jump to a lab:
 - [1 · Build an app](01-build-an-app/README.md)
 - [2 · Data to dashboard](02-contoso-dashboard/README.md)
 - [3 · Build a weather MCP](03-weather-mcp/README.md)
-- [Optional · App Connect](optional-ace/README.md)
+- [4 · App Connect](04-ace/README.md)
 - [Coming soon · ODM](coming-soon-odm/README.md)
 
 ## Start here
@@ -47,9 +47,9 @@ Open **`03-weather-mcp`** in Bob and follow [Lab 3](03-weather-mcp/README.md).
 
 **Checkpoint:** Bob answers with live weather from the MCP you built.
 
-## Optional · Build an App Connect integration
+## 4 · Build an App Connect integration
 
-Open **`optional-ace`** in Bob and follow the [App Connect lab](optional-ace/README.md).
+Open **`04-ace`** in Bob and follow [Lab 4](04-ace/README.md).
 
 - Use **ACE Developer** and the included skills to build a weather integration.
 - Running it requires **IBM App Connect Enterprise 13 Evaluation Edition** locally; the core labs do not need it. You can prepare the source while it downloads.

@@ -9,7 +9,7 @@ import { setup } from '../scripts/setup-mcp.mjs';
 import { withMcp } from '../scripts/check-mcp.mjs';
 import { createDatabase, selectStatement } from '../02-contoso-dashboard/mcp-server/database.mjs';
 import { createServer } from 'node:http';
-import { checkApi } from '../optional-ace/test-api.mjs';
+import { checkApi } from '../04-ace/test-api.mjs';
 
 test('setup handles spaces, preserves credentials and unrelated MCP settings, and is repeatable', async () => {
   const base = await mkdtemp(join(tmpdir(), 'bob-a-thon path with spaces '));
@@ -104,7 +104,7 @@ test('weather MCP initializes without calling an external weather service', asyn
 test('Bob modes parse and include the tools their workflows require', async () => {
   for (const [folder, slug, required] of [
     ['02-contoso-dashboard', 'contoso-analyst', ['read', 'edit', 'execute', 'mcp']],
-    ['optional-ace', 'ace-developer', ['read', 'edit', 'execute', 'skill']],
+    ['04-ace', 'ace-developer', ['read', 'edit', 'execute', 'skill']],
   ]) {
     const value = parse(await readFile(new URL(`../${folder}/.bob/custom_modes.yaml`, import.meta.url), 'utf8'));
     const mode = value.customModes.find((item) => item.slug === slug);

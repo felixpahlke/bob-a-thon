@@ -1,4 +1,4 @@
-# Optional · Build an App Connect integration
+# 4 · Build an App Connect integration
 
 Generate, build, and call a real weather API.
 
@@ -19,8 +19,8 @@ The weather MCP gave **Bob** tools. This integration gives **other applications*
 - In that console, create and start a local server. Replace the example path with your checkout's location and keep the console running:
 
   ```text
-  mqsicreateworkdir "C:\work\bob-a-thon\optional-ace\.workdir"
-  IntegrationServer --work-dir "C:\work\bob-a-thon\optional-ace\.workdir" --name weather-lab
+  mqsicreateworkdir "C:\work\bob-a-thon\04-ace\.workdir"
+  IntegrationServer --work-dir "C:\work\bob-a-thon\04-ace\.workdir" --name weather-lab
   ```
 
 - Open this folder in Bob. Select **ACE Developer**; the mode and focused ACE skills are included. Ask:

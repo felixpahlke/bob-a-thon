@@ -7,7 +7,7 @@
 - Supply a Contoso `.env` and its CA certificate privately. Use a dedicated SELECT-only database login, not the administrator that created the database. Participants need access to the database hostname/port from the workshop network.
 - In Lab 2, run `npm run setup` and `npm run check`. Each participant opens the lab folder itself; the generated MCP config uses absolute paths. Rerun setup after moving the repository.
 - Rehearse Lab 3 by having Bob complete its starter and running `npm run check`. Its weather check intentionally fails until the two tools exist. There is no API key to distribute.
-- ACE is optional and requires installation before the session. Its mode and focused upstream skills are bundled. Rehearse a real build/deploy/test on your installed version before offering it as a participant lab.
+- Lab 4 (ACE) includes a mode and focused upstream skills. Preparing source files needs no ACE installation; building and running them does. Rehearse a real build/deploy/test on your installed version before offering that part to participants.
 
 ## Keep the session moving
 
