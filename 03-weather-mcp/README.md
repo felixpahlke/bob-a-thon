@@ -2,7 +2,15 @@
 
 Give Bob a new tool, built by Bob.
 
-- Open this folder in Bob. The starter has MCP wiring and a `ping` tool; Bob will implement the weather tools.
+## From an API to a Bob tool
+
+In Lab 2, you used a supplied MCP server. Here you build one. The **weather API** supplies data over HTTP; your **MCP server** gives Bob named tools with defined inputs and results, and calls that API when Bob uses them.
+
+City lookup turns a name into coordinates; the weather tool uses those coordinates to fetch current conditions. The short [API notes](API.md) are the tool contract: what each tool accepts and returns. The checks test that contract, including invalid input—not just whether the server starts.
+
+## Try it
+
+- Open this folder in Bob and select Agent mode. The starter has MCP wiring and a `ping` tool; Bob will implement the weather tools.
 - Ask:
 
   > Build a weather MCP using Open-Meteo. Let me search for a city and get its current weather. Use the starter and the API notes. Test it, then help me connect it to Bob.
@@ -15,3 +23,5 @@ Give Bob a new tool, built by Bob.
 **Done when:** Bob answers with live weather from your MCP and you have tried one improvement.
 
 Open-Meteo needs no API key for this non-commercial demo. [Weather data by Open-Meteo](https://open-meteo.com/).
+
+[Next: Optional App Connect lab](../optional-ace/README.md) · [Workshop guide](../README.md)

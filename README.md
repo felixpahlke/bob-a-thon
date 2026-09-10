@@ -2,7 +2,7 @@
 
 Build an app, connect Bob to real data, then give it a new tool.
 
-Follow this page from top to bottom. The prompts are starting points—make the results your own.
+Use this page as your workshop guide. Each lab has its own short background, steps, and starting prompts—make the results your own.
 
 Jump to a lab:
 
@@ -19,77 +19,41 @@ Jump to a lab:
 - Get the Contoso connection files from your instructor for Lab 2.
 - For each lab below, use **File → Open Folder** in Bob to open that lab's folder. Run its commands in Bob's terminal. This is how Bob finds that lab's MCPs and modes.
 
-**On Windows:** restart Bob after installing Node.js so it sees the new commands. Use Command Prompt or PowerShell. If PowerShell blocks `npm.ps1`, use `npm.cmd` instead of `npm` in the commands below. No WSL or Git Bash is required. Enable file-name extensions in Explorer so `.env` doesn't accidentally become `.env.txt`.
+**On Windows:** restart Bob after installing Node.js so it sees the new commands. Use Command Prompt or PowerShell. If PowerShell blocks `npm.ps1`, use `npm.cmd` instead of `npm` throughout the workshop. No WSL or Git Bash is required. Enable file-name extensions in Explorer so `.env` doesn't accidentally become `.env.txt`.
 
 ## 1 · Build an app
 
-Open **`01-build-an-app`** and select Agent mode.
+Open **`01-build-an-app`** in Bob and follow [Lab 1](01-build-an-app/README.md).
 
-- Ask Bob:
-
-  > Build me a good-looking to-do app. I want to add, complete, and delete tasks, and keep them after refreshing the page. Keep it simple and tell me how to run it.
-
-- Open the app and try it. Refresh the page to check that tasks are saved.
-- Ask for something personal: categories, search, a new design, or your own feature.
-- If something breaks, describe the problem and let Bob fix it.
+- Have Bob build a to-do app, try it, then ask for a change of your own.
 
 **Checkpoint:** a working app with one improvement you requested.
 
 ## 2 · Turn real data into a dashboard
 
-### What is an MCP server?
+Open **`02-contoso-dashboard`** in Bob and follow [Lab 2](02-contoso-dashboard/README.md).
 
-**MCP (Model Context Protocol)** is a standard way for AI assistants to use external tools and data. An **MCP server** is a program that makes those tools available to Bob.
+- Connect the supplied MCP server to the workshop database and to Bob.
+- Explore the data, try the **Contoso Analyst** mode, and ask for a dashboard.
 
-In this lab, the server runs on your laptop and connects to the workshop's remote database. When you ask a question, Bob can call its tools to list tables, inspect columns, and query real data—then use the results in its answer. In Lab 3, your server will call a weather API instead.
-
-A **Bob mode** does a different job: it gives Bob instructions about how to work. Our Contoso Analyst mode explains the data and dashboard conventions; the MCP provides the actual database access.
-
-### Try it
-
-Open **`02-contoso-dashboard`**. The supplied MCP gives Bob three database tools; the mode adds knowledge about Contoso and useful dashboard conventions.
-
-- Put the instructor's **`.env`** and, if supplied, **`database-ca.pem`** in **`mcp-server/`**. The database name is `contoso`.
-- Run **`npm run setup`**. Open Bob's MCP settings and restart **contoso**. Run **`npm run check`**; expect three tools and eight tables.
-- Ask Bob:
-
-  > Use the Contoso MCP to explore the database. What is this data about? Show me something interesting.
-
-- Check that Bob actually calls the database tools. Select **Contoso Analyst** in the mode selector, then ask:
-
-  > Create a dashboard using the real data from this database so I can understand it. Run it and check that it works.
-
-- Explore: add a filter, request another chart, or ask your own business question.
-
-**Checkpoint:** a dashboard based on actual Contoso query results. [Connection help](02-contoso-dashboard/README.md).
+**Checkpoint:** a dashboard based on actual Contoso query results.
 
 ## 3 · Have Bob build a weather MCP
 
-Open **`03-weather-mcp`** and use Agent mode. This time Bob builds the tools itself; the folder contains a minimal starter and API notes.
+Open **`03-weather-mcp`** in Bob and follow [Lab 3](03-weather-mcp/README.md).
 
-- Ask Bob:
+- Have Bob build weather tools, connect them, and answer questions with live weather.
+- Try your own city or add a forecast tool.
 
-  > Build a weather MCP using Open-Meteo. Let me search for a city and get its current weather. Use the starter and the API notes. Test it, then help me connect it to Bob.
-
-- Run **`npm run setup`**, then restart **weather** in Bob's MCP settings.
-- Run **`npm run check`** after Bob implements the tools.
-- Ask: “Use the weather MCP to compare the weather in Berlin and London.” Watch the tool calls.
-- Try your own city or ask Bob to add a forecast tool.
-
-**Checkpoint:** Bob answers with live weather from the MCP you built. No API key is needed for this non-commercial demo. [Weather data by Open-Meteo](https://open-meteo.com/).
+**Checkpoint:** Bob answers with live weather from the MCP you built.
 
 ## Optional · Build an App Connect integration
 
-This uses **IBM App Connect Enterprise (ACE) 13 Evaluation Edition**, including Toolkit and runtime. Install it before this section; the core labs above do not need it.
+Open **`optional-ace`** in Bob and follow the [App Connect lab](optional-ace/README.md).
 
-- Follow the short [ACE setup steps](optional-ace/README.md) to start a local integration server. No remote VM or cloud control plane is needed.
-- Open **`optional-ace`** in Bob and select **ACE Developer**. The mode and ACE skills are already included.
-- Ask Bob:
-
-  > Create an ACE 13 weather integration using LAB.md. Build it, deploy it to my local integration server, and test it. First verify that the ACE commands are available; tell me if installation or environment setup is still missing.
-
-- Open the generated project in ACE Toolkit. Ask Bob to explain the flow, then run **`node test-api.mjs`** in the lab folder.
-- Ask for one change, rebuild, and test again.
+- Use **ACE Developer** and the included skills to build a weather integration.
+- Running it requires **IBM App Connect Enterprise 13 Evaluation Edition** locally; the core labs do not need it. You can prepare the source while it downloads.
+- Deploy, test, and improve the integration. No cloud runtime is needed.
 
 **Checkpoint:** the deployed ACE endpoint returns live weather and handles invalid input. This step needs a real ACE installation; generating source files alone is not a completed integration.
 
