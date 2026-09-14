@@ -1,6 +1,6 @@
 # Bob-a-thon
 
-Build an app, connect Bob to real data, then give it a new tool.
+Build apps, connect Bob to real data, and learn to guide and verify its work.
 
 Use this page as your workshop guide. Each lab has its own short background, steps, and starting prompts—make the results your own.
 
@@ -10,6 +10,7 @@ Jump to a lab:
 - [2 · Data to dashboard](02-contoso-dashboard/README.md)
 - [3 · Build a weather MCP](03-weather-mcp/README.md)
 - Step 4 — choose [App Connect](04-ace/README.md) or [Operational Decision Manager](04-odm/README.md).
+- [5 · Spec-driven development](05-spec-driven-development/README.md)
 
 ## Start here
 
@@ -55,8 +56,17 @@ Choose one of these labs based on your interests or your instructor's guidance. 
 
 **Checkpoint:** complete the chosen lab's exercise and explain what you created and verified.
 
+## 5 · Build from a spec
+
+Open **`05-spec-driven-development`** in Bob and follow [Lab 5](05-spec-driven-development/README.md). It also works independently of the integration labs.
+
+- Agree short functional and technical specs for a weather app, then have Bob build and test against them.
+- Request one change: update the spec first, then the code and tests.
+
+**Checkpoint:** acceptance criteria traced to actual checks, with one change reflected in the specs and app.
+
 ## Finish
 
-Show one thing you built and one change you asked Bob to make. You have used Bob to create an app, work with existing tools, build a new tool, and explore your chosen integration lab.
+Show one thing you built and one change you asked Bob to make. Explain how you checked the result against what you wanted.
 
 [Facilitator notes](facilitator/README.md) · [Sources and licenses](THIRD_PARTY.md)

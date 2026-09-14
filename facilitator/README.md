@@ -9,6 +9,7 @@
 - Rehearse Lab 3 by having Bob complete its starter and running `npm run check`. Its weather check intentionally fails until the two tools exist. There is no API key to distribute.
 - Lab 4 (ACE) includes a mode and focused upstream skills. Preparing source files needs no ACE installation; building and running them does. Rehearse a real build/deploy/test on your installed version before offering that part to participants.
 - Step 4 is a choice between ACE and ODM. Coordinate the ODM exercise, prerequisites, and completion check with its instructor; the repository currently contains only the handoff page.
+- Lab 5: rehearse from the two spec starters, not a finished app. It only needs the workshop tools and Open-Meteo access; no integration lab is a prerequisite.
 
 ## Keep the session moving
 
@@ -17,6 +18,7 @@
 - Lab 3: working weather tools and one improvement. Trace one tool's inputs, API request, and result. Try an unknown city or invalid coordinates; empty results are fine, fabricated weather isn't.
 - Step 4, ACE: ask what validation and error handling the integration adds beyond calling the weather API directly. Review the source without ACE, or show a successful build and HTTP response with ACE installed. Keep cloud governance for a different session.
 - Step 4, ODM: use the exercise and completion check supplied by its instructor.
+- Lab 5: challenge one vague requirement before coding. Ask participants to trace a criterion to code and a test, then agree a spec change before implementation. Discuss what the tests missed; distinguish fixed test data from the live-weather check.
 
 ## What is deliberately small
 

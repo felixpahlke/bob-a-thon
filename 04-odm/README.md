@@ -4,4 +4,4 @@ Choose this decision-automation lab or the [App Connect lab](../04-ace/README.md
 
 Your instructor will provide the exercise instructions and any required setup.
 
-[Workshop guide](../README.md)
+[Next: Spec-driven development](../05-spec-driven-development/README.md) · [Workshop guide](../README.md)
