@@ -8,9 +8,32 @@ import { tmpdir } from 'node:os';
 import { parse } from 'yaml';
 import { setup } from '../scripts/setup-mcp.mjs';
 import { withMcp } from '../scripts/check-mcp.mjs';
-import { createDatabase, selectStatement } from '../02-contoso-dashboard/mcp-server/database.mjs';
+import { createDatabase, loadConfig, selectStatement } from '../02-contoso-dashboard/mcp-server/database.mjs';
 import { createServer } from 'node:http';
 import { checkApi } from '../04-ace/test-api.mjs';
+
+test('TLS verifies by default and only an explicit demo flag skips verification', async () => {
+  const base = await mkdtemp(join(tmpdir(), 'bob TLS config '));
+  const envFile = join(base, '.env');
+  const credentials = 'DATABASE_HOST=example.test\nDATABASE_PORT=5432\nDATABASE_NAME=contoso\nDATABASE_USER=reader\nDATABASE_PASSWORD=test-only\n';
+  try {
+    await writeFile(envFile, credentials);
+    assert.deepEqual(loadConfig(envFile, {}).ssl, { rejectUnauthorized: true });
+    await writeFile(envFile, credentials + 'DATABASE_SSL=true\nDATABASE_CA_FILE=database-ca.pem\n');
+    assert.throws(() => loadConfig(envFile, {}), /PEM file is missing/);
+    await writeFile(join(base, 'database-ca.pem'), 'test certificate contents');
+    assert.deepEqual(loadConfig(envFile, {}).ssl, { rejectUnauthorized: true, ca: 'test certificate contents' });
+    await writeFile(envFile, credentials + 'DATABASE_SSL=true\nDATABASE_SSL_REJECT_UNAUTHORIZED=false\nDATABASE_CA_FILE=missing.pem\n');
+    assert.deepEqual(loadConfig(envFile, {}).ssl, { rejectUnauthorized: false });
+    await writeFile(envFile, credentials + 'DATABASE_SSL=true\nDATABASE_SSL_REJECT_UNAUTHORIZED=false\n');
+    assert.deepEqual(loadConfig(envFile, {}).ssl, { rejectUnauthorized: false });
+    assert.deepEqual(loadConfig(envFile, { DATABASE_SSL_REJECT_UNAUTHORIZED: 'true' }).ssl, { rejectUnauthorized: true });
+    assert.equal(loadConfig(envFile, { DATABASE_SSL: 'false' }).ssl, false);
+    for (const key of ['DATABASE_SSL', 'DATABASE_SSL_REJECT_UNAUTHORIZED']) {
+      assert.throws(() => loadConfig(envFile, { [key]: 'flase' }), /must be true or false/);
+    }
+  } finally { await rm(base, { recursive: true, force: true }); }
+});
 
 test('setup handles spaces, preserves credentials and unrelated MCP settings, and is repeatable', async () => {
   const base = await mkdtemp(join(tmpdir(), 'bob-a-thon path with spaces '));

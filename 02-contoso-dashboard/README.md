@@ -35,4 +35,6 @@ Contoso is fictional retail sample data in a real database. This lab's query too
 
 If the mode is missing, reload Bob's window. If the MCP fails, `npm run check` reports the connection error. The `.env` belongs in `mcp-server/`; don't move it into `.bob/`.
 
+For the instructor-approved **demo setup with only `.env`**, use `DATABASE_SSL=true` and `DATABASE_SSL_REJECT_UNAUTHORIZED=false`, and remove `DATABASE_CA_FILE`. This keeps encryption but skips server identity verification; the warning is expected. Verification is enabled by default. For verified TLS, use `true` and supply the CA file. Restart the Contoso MCP after changing settings. IBM Cloud requires encryption, so `DATABASE_SSL=false` is not a workaround.
+
 [Next: Build a weather MCP](../03-weather-mcp/README.md) · [Workshop guide](../README.md)
