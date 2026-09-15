@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/ibm-self-serve-assets/ibm-ace-bob-mode",
+  "commit": "ccb56e7ade9f98ce11eae9f9c577d18739137718",
+  "originalModeSha256": "c95f3118b694fd6d2ec2a820d25f9f30b8b06661db7fe998310d8357a26e1e60",
+  "originalModeFieldsSha256": "7ec25c3201f37bc70e4ddf866bc07398cff197a4b80cbb6e60c79c0081dfed26",
+  "rulesSha256": {
+    "rules-ace-developer/1_workflow.xml": "0de45b54f9cd2389f44b4c0abb63fe7d5d3e3d25e26d5e37241664bf70f68c1e",
+    "rules-ace-developer/2_node_reference.xml": "7914bfa6f9d60e08585a2aae9ca4ead41a472d858da1138044588aedd8ccdd1c",
+    "rules-ace-developer/3_best_practices.xml": "2684f3cc06e4c59b574ffea84d9c48800bce4c7b024f6543ee14ad21573b2abc",
+    "rules-ace-developer/4_esql_patterns.xml": "a035e880aefd2ca683daf7ca6e207b36be7d66a597b9e5ff5de0ab5c7e3a5e4a",
+    "rules-ace-developer/5_project_structure_examples.xml": "2f5f7c8a993713275c024e3c865ec371b4f589a03d8efffa2da7513b92d2132f",
+    "rules-ace-developer/6_testing_guidance.xml": "885ebfbcc5b693e37d2a8055a5a4c6007a596a0b1d35dfde79865e7109869d05",
+    "rules-ace-developer/7_msgflow_xml_and_esql_schema.xml": "293b1a71a7fed146a7103e72262a0266bc7c9df0e7a9591d6c268d8e366632d0"
+  }
+}

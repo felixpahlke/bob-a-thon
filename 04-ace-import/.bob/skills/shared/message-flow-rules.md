@@ -1,0 +1,65 @@
+# ACE Message Flow Rules
+
+## Purpose
+This document defines generic rules for creating `.msgflow` files for IBM App Connect Enterprise (ACE) Toolkit.
+
+## When to use
+Use this document for generic message flow creation and review before consulting connector-specific guidance.
+
+## Artifact type
+- Create ACE Toolkit `.msgflow` files.
+- Do not confuse ACE Toolkit `.msgflow` files with ACE Designer YAML artifacts.
+
+## Core rules
+- Every node added to a message flow must use the exact validated `xmi:type` value for that node.
+- Do not invent namespace prefixes or node type names.
+- Do not rely on old example `.msgflow` files as the source of truth for `xmi:type`.
+- Validate node type mappings against the ACE Message Flow schema for the relevant ACE version.
+- Within the .msgflow use a root tag name of `ecore:EPackage`
+- Within the `ecore:EPackage` element, the .msgflow should always carry the following hardcoded attribute values `xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:eflow="http://www.ibm.com/wbi/2005/eflow" xmlns:utility="http://www.ibm.com/wbi/2005/eflow_utility"`
+- Within the .msgflow create a child element of `ecore:EPackage` with name of `eClassifiers`
+- Within the `eClassifiers` element, create a child element with content `<eSuperTypes href="http://www.ibm.com/wbi/2005/eflow#//FCMBlock"/>`
+- Within the `.msgflow` use a `composition` element to contain multiple child elements named `nodes` and `connections`
+- Unless the user explicitly asks for square shaped message flow nodes rather than rectangles, when creating a `.msgflow` specify an attribute of `nodeLayoutStyle="RECTANGLE"` within the `eClassifiers` element.
+
+## Node type reference
+Use [`skills/shared/node-types.md`](node-types.md) for the canonical node mapping list.
+
+## Connector-specific rules
+If the requested node is connector-specific, also read:
+- [`skills/shared/connector-index.md`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/connector-index.md)
+- the relevant file under [`skills/shared/connectors/`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/connectors)
+
+## Simplicity
+Use the minimum set of nodes required to satisfy the user's request.
+- Do not add a Compute node or ESQL file unless the user explicitly asked for message transformation or routing logic.
+- A direct wire from an Input node to a Reply node is the correct implementation of a pass-through or echo flow.
+- Do not add nodes, files, or abstractions "just in case" — every node must trace directly to a stated requirement.
+
+## Required inputs
+If a node requires a value that the user has not provided, ask for it unless there is an obvious safe default.
+For example:
+- MQ Input nodes require a queue name.
+
+## Validation
+Before returning generated `.msgflow` content:
+- confirm the node types are valid
+- confirm connector-specific rules were applied where relevant
+- confirm any required supporting artifacts were also created or identified
+- apply the common checks in [`skills/shared/review-checklist.md`](review-checklist.md)
+
+## Examples
+- When creating `.msgflow` content in an Application project note the example [`skills/shared/ExampleApplication/Example.msgflow`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/Example.msgflow)
+- When creating `.msgflow` content in a REST API project note the example [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/ExampleAPI.msgflow)
+- When creating `.subflow` content in a REST API project note the example [`skills/shared/ExampleAPI/createWidget.subflow`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/createWidget.subflow), [`skills/shared/ExampleAPI/retrieveWidget.subflow`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/retrieveWidget.subflow), [`skills/shared/ExampleAPI/updateWidget.subflow`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/updateWidget.subflow), [`skills/shared/ExampleAPI/deleteWidget.subflow`](https://github.com/ot4i/ace-bob/blob/f357f9950d897594e5f9e2bc0e3e9ab6d282294f/skills/shared/deleteWidget.subflow)
+
+## Related files
+- [`skills/shared/ace-versions.md`](ace-versions.md)
+- [`skills/shared/node-types.md`](node-types.md)
+- [`skills/shared/review-checklist.md`](review-checklist.md)
+- [`skills/shared/ExampleApplication/Example.msgflow`]
+- [`skills/shared/ExampleAPI/gen/ExampleAPI.msgflow`]
+- [`skills/shared/ExampleAPI/createWidget.subflow`]
+- [`skills/shared/ExampleAPI/retrieveWidget.subflow`]
+- [`skills/shared/ExampleAPI/updateWidget.subflow`]
+- [`skills/shared/ExampleAPI/deleteWidget.subflow`]
