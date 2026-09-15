@@ -2,7 +2,7 @@
 
 Generate, build, and call a real weather API.
 
-Choose this lab or the [ODM lab](../04-odm/README.md) for Step 4.
+Choose this lab or the [ODM lab](../04-odm-mode/README.md) for Step 4.
 
 ## What are we building?
 

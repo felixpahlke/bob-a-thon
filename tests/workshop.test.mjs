@@ -141,7 +141,7 @@ test('workshop navigation and ACE technical guidance resolve to local files', as
   const root = new URL('../', import.meta.url);
   const docs = [
     'README.md', '01-build-an-app/README.md', '02-contoso-dashboard/README.md',
-    '03-weather-mcp/README.md', '04-ace/README.md', '04-odm/README.md', 'THIRD_PARTY.md',
+    '03-weather-mcp/README.md', '04-ace/README.md', '04-odm-mode/README.md', 'THIRD_PARTY.md',
     '05-spec-driven-development/README.md', '05-spec-driven-development/FUNCTIONAL_SPEC.md',
     '05-spec-driven-development/TECHNICAL_SPEC.md', 'facilitator/README.md',
     '04-ace/.bob/rules-ace-developer/8_workshop-adjustments.md',
@@ -156,7 +156,7 @@ test('workshop navigation and ACE technical guidance resolve to local files', as
   }
   const guide = await readFile(new URL('README.md', root), 'utf8');
   assert.match(guide, /Choose your integration lab/);
-  for (const folder of ['04-ace', '04-odm', '05-spec-driven-development']) assert(guide.includes(`${folder}/README.md`));
+  for (const folder of ['04-ace', '04-odm-mode', '05-spec-driven-development']) assert(guide.includes(`${folder}/README.md`));
   const mode = parse(await readFile(new URL('04-ace/.bob/custom_modes.yaml', root), 'utf8')).customModes[0];
   for (const name of ['1_workflow.xml', '7_msgflow_xml_and_esql_schema.xml', '8_workshop-adjustments.md']) {
     assert(mode.customInstructions.includes(name), `ACE mode must direct Bob to ${name}`);
