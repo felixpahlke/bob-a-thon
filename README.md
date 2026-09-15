@@ -9,7 +9,7 @@ Jump to a lab:
 - [1 · Build an app](01-build-an-app/README.md)
 - [2 · Data to dashboard](02-contoso-dashboard/README.md)
 - [3 · Build a weather MCP](03-weather-mcp/README.md)
-- Step 4 — choose [App Connect](04-ace/README.md) or [Operational Decision Manager](04-odm/README.md).
+- Step 4 — choose [App Connect](04-ace/README.md) or [Operational Decision Manager](04-odm-mode/README.md).
 - [5 · Spec-driven development](05-spec-driven-development/README.md)
 
 ## Start here
@@ -59,7 +59,7 @@ Open **`03-weather-mcp`** in Bob and follow [Lab 3](03-weather-mcp/README.md).
 Choose one of these labs based on your interests or your instructor's guidance. Open its folder in Bob.
 
 - **[App Connect — `04-ace`](04-ace/README.md):** use the ACE Developer mode and skills to prepare a weather API integration. With ACE installed, also build, deploy, and test it locally; otherwise review the source and clearly list unverified checks.
-- **[Operational Decision Manager — `04-odm`](04-odm/README.md):** follow your instructor's decision-automation exercise.
+- **[Operational Decision Manager — `04-odm`](04-odm-mode/README.md):** follow your instructor's decision-automation exercise.
 
 **Checkpoint:** complete the chosen lab's exercise and explain what you created and verified.
 

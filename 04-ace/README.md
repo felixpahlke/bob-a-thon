@@ -47,4 +47,4 @@ The lab materials are prepared; the ACE build/deployment needs rehearsal on your
 
 For a facilitator rehearsing on macOS: use **Open Integration Console** in the Toolkit and replace the Windows work-directory path with your local absolute path.
 
-[Next: Spec-driven development](../05-spec-driven-development/README.md) · [Workshop guide](../README.md) · [Other Step 4 choice: ODM](../04-odm/README.md)
+[Next: Spec-driven development](../05-spec-driven-development/README.md) · [Workshop guide](../README.md) · [Other Step 4 choice: ODM](../04-odm-mode/README.md)

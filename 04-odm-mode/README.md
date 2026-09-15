@@ -150,4 +150,6 @@ Once the project is generated, try one of these follow-up prompts:
 - [Geolocation Fraud Detection prompt](files/geolocation-fraud-detection-prompt.md)
 - [Bob documentation](https://bob.ibm.com/docs)
 
-[Back to workshop guide](../README.md)
+---
+
+[Next: Spec-driven development](../05-spec-driven-development/README.md) · [Workshop guide](../README.md)
