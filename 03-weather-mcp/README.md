@@ -19,9 +19,20 @@ City lookup turns a name into coordinates; the weather tool uses those coordinat
 - Run `npm run check`. It checks city lookup, current weather, and invalid coordinates against the tool contract in `API.md`.
 - Ask: “Use the weather MCP to compare the weather in Berlin and London.” Check that Bob calls the tools.
 - Ask Bob to walk through one tool: its inputs, the HTTP request it sends to Open-Meteo, and the result it returns to Bob.
-- Add something: a forecast, a clearer weather description, or support for choosing between cities with the same name.
 
-**Done when:** Bob answers with live weather from your MCP and you have tried one improvement.
+## Discover and extend
+
+- Ask Bob:
+
+  > What other useful tools could we add to this weather MCP? Suggest a few using free APIs without API keys, and explain what each would let you do.
+
+- Pick one—air quality, for example—and ask Bob to implement and test it. Have Bob check the API's requirements and add tests for the new tool; the supplied `npm run check` only covers the original weather tools.
+- Restart **weather** in Bob's MCP settings so Bob can discover the new tool.
+- Ask a question that uses it, such as “What is the air quality like in Berlin today?” Check that Bob actually calls the new tool.
+
+The learning: an MCP server can grow with your needs. You describe a new capability, Bob adds a tool, and you can use it in the conversation.
+
+**Done when:** Bob answers with live weather from your MCP and successfully calls one new tool you chose to add.
 
 Open-Meteo needs no API key for this non-commercial demo. [Weather data by Open-Meteo](https://open-meteo.com/).
 

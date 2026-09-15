@@ -15,7 +15,7 @@
 
 - Lab 1: discuss features and technology in Plan mode, then build in Agent mode. Finish with a working app, a few automated tests, and one personal change; rerun the tests.
 - Lab 2: explain the generated MCP config, show a visible tool call, then build a dashboard. Trace one chart value back to its query and try a reporting preference in the custom mode.
-- Lab 3: working weather tools and one improvement. Trace one tool's inputs, API request, and result. Try an unknown city or invalid coordinates; empty results are fine, fabricated weather isn't.
+- Lab 3: trace one tool's inputs, API request, and result. Ask Bob for extension ideas, let participants choose a new tool (air quality is one example), then test, restart, and use it. Try invalid input too; empty results are fine, fabricated data isn't.
 - Step 4, ACE: ask what validation and error handling the integration adds beyond calling the weather API directly. Review the source without ACE, or show a successful build and HTTP response with ACE installed. Keep cloud governance for a different session.
 - Step 4, ODM: use the exercise and completion check supplied by its instructor.
 - Lab 5: challenge one vague requirement before coding. Ask participants to trace a criterion to code and a test, then agree a spec change before implementation. Discuss what the tests missed; distinguish fixed test data from the live-weather check.
