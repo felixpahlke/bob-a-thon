@@ -1,7 +1,7 @@
 # Sources
 
 - Workshop concept: [Bob-On-Tour](https://github.com/d-schreiter/Bob-On-Tour). The participant guides and database MCP here are newly written.
-- Spec-driven development lab inspired by [Bob-On-Tour Lab 5](https://github.com/d-schreiter/Bob-On-Tour/tree/main/lab5). Our guide and spec starters are newly written, adding acceptance-criterion tracing and a spec-first change exercise.
+- Spec-driven development lab inspired by [Bob-On-Tour Lab 5](https://github.com/d-schreiter/Bob-On-Tour/tree/main/lab5). Our newly written guide and spec starters use a browser arcade game instead of a weather app, with acceptance-criterion tracing and a spec-first rule change exercise.
 - Contoso: [SQLBI Contoso Data Generator V2 data](https://github.com/sql-bi/Contoso-Data-Generator-V2-Data/releases). Data is hosted separately by the instructor; no dataset is redistributed here.
 - Weather: [Open-Meteo](https://open-meteo.com/). Free hosted API for non-commercial use; data attribution is required under CC BY 4.0. Include “Weather data by Open-Meteo” in generated weather interfaces.
 - ACE lab inspired by the [IBM Developer tutorial](https://developer.ibm.com/tutorials/accelerate-integration-development-app-connect-ibm-bob/). We use Open-Meteo and a smaller coordinate-based endpoint.

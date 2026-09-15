@@ -4,18 +4,18 @@ Starter, not an approved specification. Fill this in with Bob before implementat
 
 ## Goal and scope
 
-- Who is this for, and what should they be able to do?
+- What is the game's theme, and what is the player's goal?
 - What is deliberately out of scope?
 
-## User journey
+## Game rules
 
-Describe the main interaction, displayed weather and units, and loading, empty, and error states. Decide how users choose between cities with the same name.
+Agree controls and screen boundaries, collectible points, enemy movement, lives, and protection after a collision. Describe game over and what restart resets. Decide what happens when the player switches to another tab.
 
 ## Acceptance criteria
 
-Agree 3–5 criteria with stable IDs (`AC-01`, `AC-02`, …). Describe an action or condition and an observable result, including at least one failure case.
+Agree 3–5 criteria with stable IDs (`AC-01`, `AC-02`, …). Describe an action or condition and an observable result. Cover movement, scoring, collision/life loss, and game over/restart.
 
-Example to adapt: **AC-01** — When city lookup returns no matches, the app shows “No matching city” and no weather values.
+Example to adapt: **AC-01** — After touching an enemy, the player loses exactly one life and cannot lose another during the next second, even if the sprites remain in contact.
 
 ## Open questions and changes
 

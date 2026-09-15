@@ -64,14 +64,14 @@ Choose one of these labs based on your interests or your instructor's guidance. 
 
 **Checkpoint:** complete the chosen lab's exercise and explain what you created and verified.
 
-## 5 · Build from a spec
+## 5 · Build a game from a spec
 
 Open **`05-spec-driven-development`** in Bob and follow [Lab 5](05-spec-driven-development/README.md). It also works independently of the integration labs.
 
-- Agree short functional and technical specs for a weather app, then have Bob build and test against them.
-- Request one change: update the spec first, then the code and tests.
+- Agree rules and short specs for a browser arcade game, then have Bob build it. Move, collect, dodge, and test the rules.
+- Request one rule change: update the spec first, then the code and tests.
 
-**Checkpoint:** acceptance criteria traced to actual checks, with one change reflected in the specs and app.
+**Checkpoint:** a playable game, acceptance criteria traced to actual checks, and one rule change reflected in the specs and game.
 
 ## 6 · ACE Toolkit and IBM Bob
 

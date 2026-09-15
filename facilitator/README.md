@@ -9,7 +9,7 @@
 - Rehearse Lab 3 by having Bob complete its starter and running `npm run check`. Its weather check intentionally fails until the two tools exist. There is no API key to distribute.
 - Lab 4 (ACE) includes a mode and focused upstream skills. Preparing source files needs no ACE installation; building and running them does. Rehearse a real build/deploy/test on your installed version before offering that part to participants.
 - Step 4 is a choice between ACE and ODM. Coordinate the ODM exercise, prerequisites, and completion check with its instructor; the repository currently contains only the handoff page.
-- Lab 5: rehearse from the two spec starters, not a finished app. It only needs the workshop tools and Open-Meteo access; no integration lab is a prerequisite.
+- Lab 5: rehearse from the two spec starters, not a finished game. Use a browser and the workshop's Node.js installation; no API, backend, or integration lab is required.
 
 ## Keep the session moving
 
@@ -18,7 +18,7 @@
 - Lab 3: trace one tool's inputs, API request, and result. Ask Bob for extension ideas, let participants choose a new tool (air quality is one example), then test, restart, and use it. Try invalid input too; empty results are fine, fabricated data isn't.
 - Step 4, ACE: ask what validation and error handling the integration adds beyond calling the weather API directly. Review the source without ACE, or show a successful build and HTTP response with ACE installed. Keep cloud governance for a different session.
 - Step 4, ODM: use the exercise and completion check supplied by its instructor.
-- Lab 5: challenge one vague requirement before coding. Ask participants to trace a criterion to code and a test, then agree a spec change before implementation. Discuss what the tests missed; distinguish fixed test data from the live-weather check.
+- Lab 5: let participants theme their own Dodge & Collect game. Challenge a vague rule (“fair collisions”), trace a criterion to code and a test, then agree a rule change before implementation. Compare automated logic checks with actually playing: do movement, protection after hits, and restart behave as agreed?
 
 ## What is deliberately small
 
