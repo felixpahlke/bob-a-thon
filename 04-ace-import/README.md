@@ -1,4 +1,4 @@
-# 4b · Understand an existing ACE project
+# 4b · Understand an ACE project
 
 Import a real App Connect Enterprise project into Bob and have it explained to you.
 

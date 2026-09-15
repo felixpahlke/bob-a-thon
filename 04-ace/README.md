@@ -1,4 +1,4 @@
-# 4 · Build an App Connect integration
+# 4a · Build an App Connect integration
 
 Generate, build, and call a real weather API.
 

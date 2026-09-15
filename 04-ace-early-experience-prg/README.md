@@ -1,4 +1,4 @@
-# 6 · ACE Toolkit and IBM Bob
+# 4c · Use ACE Toolkit with IBM Bob
 
 Use IBM Bob Shell inside the IBM App Connect Enterprise Toolkit to speed up flow authoring — generate new flows, analyse existing ones, and summarise ESQL transformations with AI assistance.
 

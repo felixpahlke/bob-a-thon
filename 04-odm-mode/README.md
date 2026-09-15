@@ -1,4 +1,4 @@
-# 🎯 ODM Rule Designer — Geolocation Fraud Detection
+# 4d · Design ODM business rules
 
 > **Generate a production-ready IBM ODM Decision Service from a natural language prompt — in minutes.**
 
