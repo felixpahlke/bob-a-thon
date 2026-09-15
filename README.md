@@ -9,9 +9,12 @@ Jump to a lab:
 - [1 · Build an app](01-build-an-app/README.md)
 - [2 · Data to dashboard](02-contoso-dashboard/README.md)
 - [3 · Build a weather MCP](03-weather-mcp/README.md)
-- Step 4 — choose [App Connect](04-ace/README.md) or [Operational Decision Manager](04-odm-mode/README.md).
+- Step 4 — choose one:
+  - [Build an App Connect integration](04-ace/README.md)
+  - [Understand an ACE project](04-ace-import/README.md)
+  - [Use ACE Toolkit with IBM Bob](04-ace-early-experience-prg/README.md)
+  - [Design ODM business rules](04-odm-mode/README.md)
 - [5 · Spec-driven development](05-spec-driven-development/README.md)
-- [6 · ACE Toolkit and IBM Bob](06-ace-early-experience-prg/README.md)
 
 ## Start here
 
@@ -59,8 +62,10 @@ Open **`03-weather-mcp`** in Bob and follow [Lab 3](03-weather-mcp/README.md).
 
 Choose one of these labs based on your interests or your instructor's guidance. Open its folder in Bob.
 
-- **[App Connect — `04-ace`](04-ace/README.md):** use the ACE Developer mode and skills to prepare a weather API integration. With ACE installed, also build, deploy, and test it locally; otherwise review the source and clearly list unverified checks.
-- **[Operational Decision Manager — `04-odm`](04-odm-mode/README.md):** use the custom **ODM Rule Designer** Bob mode to generate a complete, importable ODM Decision Service for geolocation-based fraud detection — XOM Java model, BOM vocabulary, BAL business rules, ruleflow, and deployment configuration — from a single natural-language prompt. Import the result into ODM Rule Designer and explore or improve it.
+- **[Build an App Connect integration — `04-ace`](04-ace/README.md):** use the ACE Developer mode and skills to prepare a weather API integration. With ACE installed, also build, deploy, and test it locally; otherwise review the source and clearly list unverified checks.
+- **[Understand an ACE project — `04-ace-import`](04-ace-import/README.md):** import a real HLAG Kafka producer integration into Bob and have it explain the message flow, Java Compute Node, shared library, and Kubernetes deployment configuration — no ACE installation required.
+- **[Use ACE Toolkit with IBM Bob — `04-ace-early-experience-prg`](04-ace-early-experience-prg/README.md):** install IBM Bob Shell, configure it as a terminal inside the ACE Toolkit, and generate, analyse, deploy, and test ACE flows using the ace-bob skill.
+- **[Design ODM business rules — `04-odm`](04-odm-mode/README.md):** use the custom **ODM Rule Designer** Bob mode to generate a complete, importable ODM Decision Service for geolocation-based fraud detection — XOM Java model, BOM vocabulary, BAL business rules, ruleflow, and deployment configuration — from a single natural-language prompt. Import the result into ODM Rule Designer and explore or improve it.
 
 **Checkpoint:** complete the chosen lab's exercise and explain what you created and verified.
 
@@ -72,16 +77,6 @@ Open **`05-spec-driven-development`** in Bob and follow [Lab 5](05-spec-driven-d
 - Request one rule change: update the spec first, then the code and tests.
 
 **Checkpoint:** a playable game, acceptance criteria traced to actual checks, and one rule change reflected in the specs and game.
-
-## 6 · ACE Toolkit and IBM Bob
-
-Open **`06-ace-early-experience-prg`** in Bob and follow [Lab 6](06-ace-early-experience-prg/README.md).
-
-- Install IBM Bob Shell and configure it as a terminal inside the ACE Toolkit.
-- Use the ace-bob skill to generate a complete ACE application with all required Eclipse metadata.
-- Analyse an existing ESQL transformation flow and create, deploy, and test a file-processing flow.
-
-**Checkpoint:** three exercises completed — HTTP echo flow generated, existing flow summarised, file flow deployed and tested end-to-end.
 
 ## Finish
 
