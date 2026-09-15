@@ -11,6 +11,7 @@ Jump to a lab:
 - [3 · Build a weather MCP](03-weather-mcp/README.md)
 - Step 4 — choose [App Connect](04-ace/README.md) or [Operational Decision Manager](04-odm-mode/README.md).
 - [5 · Spec-driven development](05-spec-driven-development/README.md)
+- [6 · ACE Toolkit and IBM Bob](06-ace-early-experience-prg/README.md)
 
 ## Start here
 
@@ -59,7 +60,7 @@ Open **`03-weather-mcp`** in Bob and follow [Lab 3](03-weather-mcp/README.md).
 Choose one of these labs based on your interests or your instructor's guidance. Open its folder in Bob.
 
 - **[App Connect — `04-ace`](04-ace/README.md):** use the ACE Developer mode and skills to prepare a weather API integration. With ACE installed, also build, deploy, and test it locally; otherwise review the source and clearly list unverified checks.
-- **[Operational Decision Manager — `04-odm`](04-odm-mode/README.md):** follow your instructor's decision-automation exercise.
+- **[Operational Decision Manager — `04-odm`](04-odm-mode/README.md):** use the custom **ODM Rule Designer** Bob mode to generate a complete, importable ODM Decision Service for geolocation-based fraud detection — XOM Java model, BOM vocabulary, BAL business rules, ruleflow, and deployment configuration — from a single natural-language prompt. Import the result into ODM Rule Designer and explore or improve it.
 
 **Checkpoint:** complete the chosen lab's exercise and explain what you created and verified.
 
@@ -71,6 +72,16 @@ Open **`05-spec-driven-development`** in Bob and follow [Lab 5](05-spec-driven-d
 - Request one change: update the spec first, then the code and tests.
 
 **Checkpoint:** acceptance criteria traced to actual checks, with one change reflected in the specs and app.
+
+## 6 · ACE Toolkit and IBM Bob
+
+Open **`06-ace-early-experience-prg`** in Bob and follow [Lab 6](06-ace-early-experience-prg/README.md).
+
+- Install IBM Bob Shell and configure it as a terminal inside the ACE Toolkit.
+- Use the ace-bob skill to generate a complete ACE application with all required Eclipse metadata.
+- Analyse an existing ESQL transformation flow and create, deploy, and test a file-processing flow.
+
+**Checkpoint:** three exercises completed — HTTP echo flow generated, existing flow summarised, file flow deployed and tested end-to-end.
 
 ## Finish
 
