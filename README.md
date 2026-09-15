@@ -16,6 +16,13 @@ Jump to a lab:
 
 - Install and sign in to **IBM Bob**. Install **Node.js 22 or 24 LTS** and Git.
 - Clone or download this repository. In the repository's root folder, run **`npm ci`** once.
+
+  ```bash
+  git clone https://github.com/felixpahlke/bob-a-thon.git
+  cd bob-a-thon
+  npm ci
+  ```
+
 - Get the Contoso connection files from your instructor for Lab 2.
 - For each lab below, use **File → Open Folder** in Bob to open that lab's folder. Run its commands in Bob's terminal. This is how Bob finds that lab's MCPs and modes.
 
